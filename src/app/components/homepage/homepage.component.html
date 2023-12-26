@@ -1,0 +1,55 @@
+<p>homepage works!</p>
+
+<!-- conditional rendering with @defer -->
+
+<button (click)="IsShowCard = true">Load</button>
+
+@defer(when IsShowCard) {
+    <app-card></app-card>
+}
+@loading {
+    Loading ...
+}
+@placeholder {
+    Placeholder of card
+}
+@error {
+    Error 
+}
+
+<!-- immediate rendering with @defer -->
+
+@defer(on immediate) {
+    <app-card></app-card>
+}
+
+<!-- interaction based rendering with @defer -->
+
+@defer(on interaction(trigger)) {
+    <app-card></app-card>
+}
+@placeholder {
+    Placeholder of Trigger differ
+}
+
+<button #trigger>Trigger</button>
+
+<!-- Hover based rendering with @defer -->
+
+@defer(on hover(trigger)) {
+    <app-card></app-card>
+}
+@placeholder {
+    Placeholder of hover differ
+}
+
+<button #trigger>Trigger</button>
+
+<!-- time based rendering with @defer -->
+
+@defer(on timer(2000)) {
+    <app-card></app-card>
+}
+@placeholder {
+    Placeholder of timer differ
+}
