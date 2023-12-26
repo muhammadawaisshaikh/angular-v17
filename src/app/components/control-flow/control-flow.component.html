@@ -1,1 +1,33 @@
 <p>control-flow works!</p>
+
+<button (click)="toggleCard()">Toogle Card</button>
+
+
+
+@if (isCard) {
+    <p>isCard is true</p>
+} 
+@else if (!isCard) {
+    <p>isCard is false elseIf</p>
+} 
+@else {
+    <p>isCard is false</p>
+}
+
+@for (user of users; track $index) {
+    <p>{{user.id}} - {{user.name}}</p>
+} @empty {
+    <p>No Data to preview!</p>
+}
+
+@switch (isCard) {
+    @case (true) {
+        <p>Switch says its {{isCard}}</p>
+    }
+    @case (false) {
+        <p>Switch says its {{isCard}}</p>
+    }
+    @default {
+        Switch Default
+    }
+}
